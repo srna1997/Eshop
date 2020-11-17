@@ -1,0 +1,30 @@
+﻿@model IEnumerable<EnterWell.Models.Category>
+
+@{
+    ViewBag.Title = "Store";
+}
+
+<h2>Browse Category</h2>
+<p>
+    Select From @Model.Count()
+    genres:
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Categories</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">
+                <ul>
+                    @foreach (var category in Model)
+                    {
+                        <li>@Html.ActionLink(category.Name, "Browse", new { category = category.Name })</li>
+                    }
+                </ul>
+            </th>
+        </tr>
+        
+</table>
