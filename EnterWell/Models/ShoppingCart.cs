@@ -111,18 +111,6 @@ namespace EnterWell.Models
             return total ?? decimal.Zero;
         }
 
-      /* LINQ to Entities error, don't know how to solve it 
-        public decimal GetTotalWithPDV()
-        {
-            decimal? total = (
-                from CartItems in StoreDB.Carts
-                where CartItems.CartId == ShoppingCartId
-                select ((int?)CartItems.Count *
-                CartItems.item.Price) * Convert.ToDecimal(1.25)).Sum();
-
-            return total ?? decimal.Zero;
-        }*/
-
         public int CreateOrder(Order order)
         {
             decimal OrderTotal = 0;
@@ -182,4 +170,6 @@ namespace EnterWell.Models
             StoreDB.SaveChanges();
         }
     }
+
+    
 }

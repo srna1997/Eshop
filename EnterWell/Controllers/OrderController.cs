@@ -16,6 +16,7 @@ namespace EnterWell.Controllers
         private ShoppingStoreEntities db = new ShoppingStoreEntities();
 
         // GET: Order
+        [Authorize(Users = "e@gmail.com")]
         public ActionResult Index()
         {
             return View(db.Orders.ToList());

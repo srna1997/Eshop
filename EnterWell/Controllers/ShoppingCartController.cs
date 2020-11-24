@@ -12,6 +12,12 @@ namespace EnterWell.Controllers
     {
         ShoppingStoreEntities StoreDB = new ShoppingStoreEntities();
 
+        public IPDVService Service { get; set; }
+
+        public ShoppingCartController(IPDVService pdv)
+        {
+            this.Service = pdv;
+        }
         // GET: ShoppingCart
         public ActionResult Index()
         {
@@ -21,7 +27,7 @@ namespace EnterWell.Controllers
             {
                 CartItems = Cart.GetCartItems(),
                 CartTotal = Cart.GetTotal(),
-                //CartTotalWithPDV = Cart.GetTotalWithPDV()
+                CartTotalWithPDV = Cart.GetTotal() * this.Service.PDV()
             };
             return View(ViewModel);
         }

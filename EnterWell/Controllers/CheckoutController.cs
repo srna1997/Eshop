@@ -13,7 +13,12 @@ namespace EnterWell.Controllers
     {
         ShoppingStoreEntities StoreDB = new ShoppingStoreEntities();
 
-       // const string PromoCode = "50";
+        public CheckoutController(IPDVService pdv)
+        {
+            this.Service = pdv;
+        }
+
+        public IPDVService Service { get; set; }
 
         public ActionResult AddressPayment()
         {
@@ -36,7 +41,7 @@ namespace EnterWell.Controllers
                 order.OrderDate = DateTime.Now;
                 order.OrderDueDate = DateTime.Now.AddDays(3);
                 order.Total = cart.GetTotal();
-                order.TotalWithPDV = cart.GetTotal()*Convert.ToDecimal(1.25);
+                order.TotalWithPDV = cart.GetTotal() * this.Service.PDV();
 
                 StoreDB.Orders.Add(order);
                 StoreDB.SaveChanges();
