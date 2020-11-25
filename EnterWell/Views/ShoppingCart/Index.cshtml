@@ -62,7 +62,7 @@
         </td>
         <td></td>
         <td></td>
-        <td id="cart-total">
+        <td>
             25%
         </td>
     </tr>
@@ -72,7 +72,7 @@
         </td>
         <td></td>
         <td></td>
-        <td id="cart-total">
+        <td id="cart-totalPDV">
             @Model.CartTotalWithPDV
         </td>
     </tr>
@@ -104,6 +104,7 @@
                             $('#item-count-' + data.DeleteId).text(data.ItemCount);
                         }
                         $('#cart-total').text(data.CartTotal);
+                        $('#cart-totalPDV').text(data.CartTotalWithPDV);
                         $('#update-message').text(data.Message);
                         $('#cart-status').text('Cart (' + data.CartCount + ')');
                     });

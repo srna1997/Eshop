@@ -9,6 +9,7 @@ namespace EnterWell.ViewModel
     {
         public string Message { get; set; }
         public decimal CartTotal { get; set; }
+        public decimal CartTotalWithPDV { get; set; }
         public int CartCount { get; set; }
         public int ItemCount { get; set; }
         public int DeleteId { get; set; }

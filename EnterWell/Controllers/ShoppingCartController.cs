@@ -56,6 +56,7 @@ namespace EnterWell.Controllers
                 Message = Server.HtmlEncode(ItemName) +
                 " has been removed from your shopping cart.",
                 CartTotal = Cart.GetTotal(),
+                CartTotalWithPDV = Cart.GetTotal() * this.Service.PDV(),
                 CartCount = Cart.GetCount(),
                 ItemCount = ItemCount,
                 DeleteId = id
