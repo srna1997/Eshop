@@ -7,10 +7,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using EnterWell.Models;
+using System.ComponentModel.Composition;
 
 namespace EnterWell.Controllers
 {
     [Authorize]
+    [Export(typeof(ManageController))]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;

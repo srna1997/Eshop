@@ -9,7 +9,8 @@ namespace EnterWell.Controllers
         decimal PDV();
         
     }
-    [Export(typeof(IPDVService))]
+    //[Export(typeof(IPDVService))]
+    [Export(typeof(IPDVService)), PartCreationPolicy(CreationPolicy.NonShared)]
     public class PDVService : IPDVService
     {
         public decimal PDV()

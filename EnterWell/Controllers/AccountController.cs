@@ -9,10 +9,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using EnterWell.Models;
+using System.ComponentModel.Composition;
 
 namespace EnterWell.Controllers
 {
     [Authorize]
+    [Export(typeof(AccountController))]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
